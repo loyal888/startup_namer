@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 
 //引入english_word
 import 'package:english_words/english_words.dart';
+import 'package:startup_namer/updateTextWhenClick.dart';
 
 // 主函数（main）使用了 (=>) 符号，这是 Dart 中单行函数或方法的简写。
-void main() => runApp(MyApp());
+void main() => runApp(SampleApp());
 
 // 该应用程序继承了 StatelessWidget，这将会使应用本身也成为一个 widget。
 // Stateless widgets 是不可变的，这意味着它们的属性不能改变 —— 所有的值都是 final。
