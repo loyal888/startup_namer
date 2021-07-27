@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: "First Demo",
       // Scaffold 是 Material 库中提供的一个 widget，
       // 它提供了默认的导航栏、标题和包含主屏幕 widget 树的 body 属性。
-      home: ExampleWidget(),
+      home: AddOrRemoveWidget(),
     );
   }
 }
@@ -108,6 +108,67 @@ class _ExampleWidgetState extends State<ExampleWidget> {
           onPressed: () {},
           child: Text('Hello'),
         ),
+      ),
+    );
+  }
+}
+
+
+class SampleApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Sample App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: AddOrRemoveWidget(),
+    );
+  }
+}
+
+/// 在布局中添加或删除一个组件
+class AddOrRemoveWidget extends StatefulWidget {
+  AddOrRemoveWidget({Key? key}) : super(key: key);
+
+  @override
+  _AddOrRemoveWidgetState createState() => _AddOrRemoveWidgetState();
+}
+
+class _AddOrRemoveWidgetState extends State<AddOrRemoveWidget> {
+  // Default value for toggle.
+  bool toggle = true;
+  void _toggle() {
+    setState(() {
+      toggle = !toggle;
+    });
+  }
+
+  Widget _getToggleChild() {
+    if (toggle) {
+      return Text('Toggle One');
+    } else {
+      return ElevatedButton(
+        onPressed: () {},
+        child: Text('Toggle Two'),
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Sample App'),
+      ),
+      body: Center(
+        child: _getToggleChild(),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _toggle,
+        tooltip: 'Update Text',
+        child: Icon(Icons.update),
       ),
     );
   }
