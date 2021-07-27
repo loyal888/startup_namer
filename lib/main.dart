@@ -1,5 +1,7 @@
 //引入material库
 import 'package:flutter/material.dart';
+//引入english_word
+import 'package:english_words/english_words.dart';
 
 // 主函数（main）使用了 (=>) 符号，这是 Dart 中单行函数或方法的简写。
 void main() => runApp(MyApp());
@@ -7,8 +9,10 @@ void main() => runApp(MyApp());
 // 该应用程序继承了 StatelessWidget，这将会使应用本身也成为一个 widget。
 class MyApp extends StatelessWidget {
   //  widget 的主要工作是提供一个 build() 方法来描述如何根据其他较低级别的 widgets 来显示自己。
+  // 每次 MaterialApp 需要渲染时或者在 Flutter Inspector 中切换平台时 build 都会运行。
   @override
   Widget build(BuildContext context) {
+    final wordPair = WordPair.random();
     return MaterialApp(
       title: "First Demo",
       // Scaffold 是 Material 库中提供的一个 widget，
@@ -17,8 +21,8 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text("First Demo"),
         ),
-        body: const Center(
-          child: Text("Hello World"),
+        body:  Center(
+          child: Text(wordPair.asPascalCase),
         ),
       ),
     );
