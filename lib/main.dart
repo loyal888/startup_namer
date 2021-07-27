@@ -1,6 +1,7 @@
 //引入material库
 import 'package:flutter/material.dart';
 import 'AddOrRemoveWidget.dart';
+import 'FadeAppTest.dart';
 
 /// 主函数（main）使用了 (=>) 符号，这是 Dart 中单行函数或方法的简写。
 void main() => runApp(MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: "First Demo",
       // Scaffold 是 Material 库中提供的一个 widget，
       // 它提供了默认的导航栏、标题和包含主屏幕 widget 树的 body 属性。
-      home: AddOrRemoveWidget(),
+      home: FadeAppTest(),
     );
   }
 }
